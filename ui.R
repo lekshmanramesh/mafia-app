@@ -13,11 +13,11 @@ library(shiny)
 shinyUI(fluidPage(
   
   # Application title
-  headerPanel("Propelling India"),
+  headerPanel("Welcome to the Village"),
   
   # Sidebar with a slider input for number of bins. Create as many Inputs as you want 
   sidebarPanel(
-    column(8,
+
            numericInput("Players", "Players:",
                      8),
            textInput("Name", "Name:",
@@ -25,7 +25,7 @@ shinyUI(fluidPage(
            actionButton(inputId = "submit_loc",
                         label = "Submit"),
            actionButton(inputId = "done_loc",
-                        label = "I'm Done"))
+                        label = "I'm Done")
   ),
     
     # Show a plot of the generated distribution
