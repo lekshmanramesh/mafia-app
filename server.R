@@ -40,7 +40,7 @@ shinyServer(function(input, output, session) {
     #Sys.sleep(45)
     #if (counter$count<3){
     
-    tags$audio(src = "Game Begins- Final.wav", type = "audio/wav", autoplay=T, controls = TRUE)
+    tags$audio(src = "Game Begins- Final.wav", type = "audio/wav", autoplay=T)
     #tags$audio(src = "Players Box.wav", type = "audio/wav", autoplay=T, controls = TRUE)
     #}
   })
@@ -149,7 +149,7 @@ shinyServer(function(input, output, session) {
       output$distPlot3 <- renderTable({
         #paste("You are a ",ifelse(rnorm(1)<0,"wolf","villager"))
         #"Please enter your name"
-        output_data$data
+        output_data$data[,c("names","status")]
       })
       
       output$distPlot2 <- renderUI({
@@ -159,14 +159,14 @@ shinyServer(function(input, output, session) {
         #if (counter$count<3){
         Sys.sleep(30)
         if (counter$count<input$Players){
-          tags$audio(src = "Next Player.wav", type = "audio/wav", autoplay=T, controls = TRUE)
+          tags$audio(src = "Next Player.wav", type = "audio/wav", autoplay=T)
         }
-        else if ((counter$count-input$Players)%%alive_no$data==0){tags$audio(src = "mafia call.wav", type = "audio/wav", autoplay=T, controls = TRUE)}
-        else if ((counter$count-input$Players)%%alive_no$data==1){tags$audio(src = "Cop Call.wav", type = "audio/wav", autoplay=T, controls = TRUE)}
-        else if ((counter$count-input$Players)%%alive_no$data==2){tags$audio(src = "Doc Call.wav", type = "audio/wav", autoplay=T, controls = TRUE)} 
+        else if ((counter$count-input$Players)%%alive_no$data==0){tags$audio(src = "mafia call.wav", type = "audio/wav", autoplay=T)}
+        else if ((counter$count-input$Players)%%alive_no$data==1){tags$audio(src = "Cop Call.wav", type = "audio/wav", autoplay=T)}
+        else if ((counter$count-input$Players)%%alive_no$data==2){tags$audio(src = "Doc Call.wav", type = "audio/wav", autoplay=T)} 
         else if ((counter$count-input$Players)%%alive_no$data==3){
           #Sys.sleep(15)
-          tags$audio(src = "Its Day Time.wav", type = "audio/wav", autoplay=T, controls = TRUE)} 
+          tags$audio(src = "Its Day Time.wav", type = "audio/wav", autoplay=T)} 
         #tags$audio(src = "clip.wav", type = "audio/wav", autoplay=T, controls = TRUE)
         
         #}
